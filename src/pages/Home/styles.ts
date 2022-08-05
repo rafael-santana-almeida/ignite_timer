@@ -109,7 +109,7 @@ const BaseCountdownButton = styled.button`
 `
 
 export const StartCountdownButton = styled(BaseCountdownButton)`
-  background: ${(props) => props.theme['green-500']}; 
+  background: ${(props) => props.theme['green-500']};
 
   &:disabled {
     opacity: 0.7;
