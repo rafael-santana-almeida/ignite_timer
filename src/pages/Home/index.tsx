@@ -20,8 +20,8 @@ interface Cycle {
 }
 
 interface CyclesContextData {
-  activeCycle: Cycle | undefined,
-  activeCycleId: string  | null,
+  activeCycle: Cycle | undefined
+  activeCycleId: string | null
   markCurrentCycleAsFinished: () => void
 }
 
@@ -80,11 +80,12 @@ export function Home() {
   return (
     <HomeContainer>
       <form onSubmit={handleSubmit(handleCreateNewCycle)} action="">
-        <CycleContext.Provider value={{ activeCycle, activeCycleId, markCurrentCycleAsFinished }}>
+        <CycleContext.Provider
+          value={{ activeCycle, activeCycleId, markCurrentCycleAsFinished }}
+        >
           <NewCycleForm />
           <Countdown />
         </CycleContext.Provider>
-
 
         {activeCycle ? (
           <StopCountdownButton type="button" onClick={handleInterruptCycle}>
