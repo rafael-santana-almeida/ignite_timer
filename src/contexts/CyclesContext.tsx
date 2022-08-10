@@ -54,8 +54,7 @@ export function CycleContextProvider({ children }: CYcleContextProviderProps) {
     },
   )
 
-  const { cycles, activeCycleId } = cyclesState
-  const activeCycle = cycles.find((cycle) => cycle.id === activeCycleId)
+  const activeCycle = cyclesState.cycles.find((cycle) => cycle.id === cyclesState.activeCycleId)
 
   const [amountSecondsPassed, setAmountSecondsPasses] = useState(() => {
     if (activeCycle) {
@@ -100,9 +99,9 @@ export function CycleContextProvider({ children }: CYcleContextProviderProps) {
   return (
     <CycleContext.Provider
       value={{
-        cycles,
+        cycles: cyclesState.cycles,
         activeCycle,
-        activeCycleId,
+        activeCycleId: cyclesState.activeCycleId,
         amountSecondsPassed,
         markCurrentCycleAsFinished,
         setSecondsPassed,
